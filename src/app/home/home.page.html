@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="card-stack">
+    <ion-card *ngFor="let card of cards; let i = index" [class.selected]="i === selectedCardIndex"
+      [style.backgroundColor]="card.color" (click)="onCardClick(i)">
+<ion-card-content class="wallet-card-content">
+        {{ card.title }}
+      </ion-card-content>
+    </ion-card>
+<div *ngIf="showDetail" [@detailEnterLeave] class="card-detail" [class.flipped]="isFlipped">
+  <div class="card-front" (click)="toggleDetail()">
+    {{ cards[selectedCardIndex!].frontDetail }}
+  </div>
+  <div class="card-back" (click)="toggleDetail()">
+    {{ cards[selectedCardIndex!].backDetail }}
+  </div>
+</div>
+
+  </div>
+</ion-content>
+

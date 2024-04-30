@@ -1,0 +1,83 @@
+.card-stack {
+
+  position: relative;
+  width: 340px;
+  height: 500px;
+  margin: 100px auto;
+  margin-top: 10px;
+  perspective: 1000px;
+}
+
+.card-stack ion-card {
+  width: 340px;
+  height: 200px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.418), rgba(255, 255, 255, 0.656));
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card-stack ion-card.selected {
+  z-index: 2;
+}
+.wallet-card-content {
+  color: white;
+    font-size: 20px;
+
+}
+.card-detail {
+  border-radius: 8px;
+  position: absolute;
+  width: 340px;
+  height: 600px;
+  background-color: transparent;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  top: calc(200px + 25px);
+  perspective: 1000px;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  transform-style: preserve-3d;
+  transform: translateY(100%);
+  opacity: 0;
+  z-index: 10;
+}
+
+
+.card-front, .card-back {
+    border-radius: 8px;
+    transform-origin: center;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.card-front {
+  background: #f23131;
+    transform-origin: center;
+}
+
+.card-back {
+  background: #03446A;
+   transform-origin: center;
+
+  transform: rotateY(180deg);
+}
+
+.card-detail.flipped .card-front {
+  transform: rotateY(180deg);
+}
+
+.card-detail.flipped .card-back {
+  transform: rotateY(0deg);
+}
